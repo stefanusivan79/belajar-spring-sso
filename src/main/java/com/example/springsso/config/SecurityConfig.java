@@ -28,6 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .successHandler((httpServletRequest, httpServletResponse, authentication) -> {
                     httpServletResponse.sendRedirect("/home");
+                })
+                .and()
+                .logout().invalidateHttpSession(true).deleteCookies("JSESSIONID")
+                .logoutSuccessHandler((httpServletRequest, httpServletResponse, authentication) -> {
+                    httpServletResponse.sendRedirect("/");
                 });
     }
 }

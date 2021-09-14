@@ -19,6 +19,12 @@
 <div>
     Picture : <span sec:authentication="principal.picture"></span>
 </div>
+<br>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</div>
 
 </body>
 </html>
